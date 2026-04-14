@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luiza Michielin — Figurinos & Moda</title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="./image/favicon.ico.png" type="image/x-icon">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Luiza Michielin</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#sobre"     onclick="toggleMenu()">Sobre</a>
+  <a href="#portfolio" onclick="toggleMenu()">Portfólio</a>
+  <a href="#servicos"  onclick="toggleMenu()">Serviços</a>
+  <a href="#contato"   onclick="toggleMenu()">Contato</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-photo" id="heroBgPhoto"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Figurinos & Moda</p>
+    <h1 class="hero-name">Luiza<em>Michielin</em></h1>
+    <p class="hero-sub">Criações exclusivas</p>
+    <div class="hero-line"></div>
+    <p class="hero-scroll" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Ver portfólio</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="about-photo-wrapper reveal">
+    <div class="about-deco"></div>
+    <div class="about-photo-frame">
+      <div class="photo-placeholder" id="aboutPlaceholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+        </svg>
+        <span>Defina ABOUT_IMAGE no script.js</span>
+      </div>
+      <img id="aboutImg" src="" alt="Luiza Michielin" style="display:none; width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="about-deco-2"></div>
+  </div>
+
+  <div class="reveal">
+    <p class="section-label">Sobre mim</p>
+    <h2 class="about-title">Figurinista<br>& <em>Estilista</em></h2>
+    <p class="about-text">
+      Olá! Sou Luiza Michielin, figurinista e estilista apaixonada pela arte de criar roupas que contam histórias. Trabalho com organização ou produção de figurinos para teatro, peças autorais e um pouco de tudo, transformando conceitos em peças únicas e exclusivas.
+    </p>
+    <p class="about-text">
+      Cada projeto é uma nova oportunidade de explorar formas, texturas e narrativas através do tecido. Da criação do croqui à peça finalizada, cuido de cada detalhe com dedicação e criatividade.
+    </p>
+    <div class="about-tags">
+      <span class="tag">Figurinos</span>
+      <span class="tag">Teatro</span>
+      <span class="tag">Crochê</span>
+      <span class="tag">Peças Exclusivas</span>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section" id="portfolio">
+  <div class="section-header reveal">
+    <p class="section-label" style="color: var(--beige);">Meu trabalho</p>
+    <h2 class="section-title">Port<em>fólio</em></h2>
+  </div>
+
+  <div class="category-tabs reveal">
+    <button class="tab-btn active" onclick="filterTab('todos', this)">Todos</button>
+    <button class="tab-btn" onclick="filterTab('figurinos', this)">Figurinos</button>
+    <button class="tab-btn" onclick="filterTab('projetos', this)">Projetos</button>
+
+  </div>
+
+  <div class="photo-grid" id="photoGrid">
+    <!-- Cards gerados pelo script.js -->
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicos">
+  <div class="section-header reveal" style="text-align:left;">
+    <p class="section-label">O que ofereço</p>
+    <h2 class="about-title">Serviços <em>&</em><br>Criações</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-name">Figurinos Teatrais</div>
+      <p class="service-desc">Criação, confecção e organizção de figurinos para peças de teatro e dança, do croqui à peça finalizada, com atenção à narrativa e movimento cênico. </p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <div class="service-name">Peças Exclusivas</div>
+      <p class="service-desc">Desenvolvimento de peças únicas sob medida, desde fantasias especiais até criações de moda autorais com identidade própria.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <div class="service-name">Crochê & Artesanal</div>
+      <p class="service-desc">Criações artesanais em crochê e outros técnicas têxteis, unindo tradição e modernidade em peças únicas e especiais.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contato">
+  <div class="reveal">
+    <p class="section-label" style="color: var(--beige);">Vamos criar juntos</p>
+    <h2 class="contact-title">Entre em<br><em>contato</em></h2>
+    <p class="contact-sub">Orçamentos e projetos exclusivos. Cada peça criada com dedicação e cuidado especial.</p>
+    <div class="contact-links">
+      <a href="https://www.instagram.com/atelier.michielin" target="_blank" class="contact-btn primary">Instagram</a>
+      <button class="contact-btn outline" onclick="document.getElementById('contactModal').classList.add('open')">Enviar mensagem</button>
+      <a href="https://www.tiktok.com/@atelier.michielin" target="_blank" class="contact-btn outline">TikTok</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Luiza Michielin</div>
+  <p class="footer-text">Figurinos & Moda · Criações exclusivas</p>
+</footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">×</button>
+    <h3 class="modal-title">Solicitar orçamento</h3>
+    <div class="form-group">
+      <label>Seu nome</label>
+      <input type="text" placeholder="Como posso te chamar?">
+    </div>
+    <div class="form-group">
+      <label>WhatsApp ou e-mail</label>
+      <input type="text" placeholder="Para entrar em contato">
+    </div>
+    <div class="form-group">
+      <label>Tipo de projeto</label>
+      <select>
+        <option>Figurino teatral</option>
+        <option>Fantasia / Cosplay</option>
+        <option>Peça exclusiva de moda</option>
+        <option>Crochê artesanal</option>
+        <option>Outro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Descreva seu projeto</label>
+      <textarea placeholder="Me conte mais sobre o que você imagina..."></textarea>
+    </div>
+    <button class="form-submit" onclick="alert('Mensagem enviada! Em breve Luiza entrará em contato ✨')">Enviar solicitação</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
