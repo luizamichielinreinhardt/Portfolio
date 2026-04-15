@@ -8,7 +8,7 @@
 //  Exemplo: './fotos/banner.jpg'
 //  Deixe null para usar o fundo escuro.
 // ============================================================
-const HERO_BG_IMAGE = './image/fotofundo.png'; // <- coloque o caminho aqui: './fotos/banner.jpg'
+const HERO_BG_IMAGE = null; // <- coloque o caminho aqui: './fotos/banner.jpg'
 
 // ============================================================
 //  FOTO DA SEÇÃO "SOBRE"
@@ -16,7 +16,7 @@ const HERO_BG_IMAGE = './image/fotofundo.png'; // <- coloque o caminho aqui: './
 //  Exemplo: './fotos/perfil.jpg'
 //  Deixe null para mostrar o espaço vazio.
 // ============================================================
-const ABOUT_IMAGE = './image/imagem_pessoal.jpeg'; // <- coloque o caminho aqui: './fotos/perfil.jpg'
+const ABOUT_IMAGE = null; // <- coloque o caminho aqui: './fotos/perfil.jpg'
 
 // ============================================================
 //  CARDS DO PORTFÓLIO
@@ -35,68 +35,43 @@ const cards = [
   // --- CARD 1 ---
   {
     title: 'Fantasia da Jasmine',
-    category: 'pecas',
-    image: './image/jasmine.jpeg'  // <- './fotos/jasmine.jpg'
+    category: 'figurinos',
+    image: null  // <- './fotos/jasmine.jpg'
   },
 
   // --- CARD 2 ---
   {
-    title: 'Fantasia de gênio',
-    category: 'pecas',
-    image: './image/genio.jpeg' // <- './fotos/bia.jpg'
+    title: 'Fantasia da Bia',
+    category: 'figurinos',
+    image: null  // <- './fotos/bia.jpg'
   },
 
   // --- CARD 3 ---
   {
     title: 'Figurino Teatro',
     category: 'figurinos',
-    image: './image/mostra1.jpeg'  // <- './fotos/teatro.jpg'
-  },
-  {
-    title: 'Figurino Teatro',
-    category: 'figurinos',
-    image: './image/mostra2.jpeg'  // <- './fotos/teatro.jpg'
-  },
-  {
-    title: 'Figurino Teatro',
-    category: 'figurinos',
-    image: './image/mostra3.jpeg'  // <- './fotos/teatro.jpg'
+    image: null  // <- './fotos/teatro.jpg'
   },
 
-
+  // --- CARD 4 ---
+  {
+    title: 'Projeto Crochê',
+    category: 'croche',
+    image: null  // <- './fotos/croche.jpg'
+  },
 
   // --- CARD 5 ---
   {
-    title: 'Figurino das Dynamos(musical)',
-    category: 'figurinos',
-    image: './image/ma2.jpg'  // <- './fotos/peca1.jpg'
+    title: 'Peça Autoral',
+    category: 'pecas',
+    image: null  // <- './fotos/peca1.jpg'
   },
 
   // --- CARD 6 ---
   {
     title: 'Projeto Especial',
     category: 'projetos',
-    image: './image/ma1.jpg' // <- './fotos/projeto1.jpg'
-  },
-  {
-    title: 'Figurino das Dynamos(musical)',
-    category: 'figurinos',
-    image: './image/ma3.jpg' // <- './fotos/projeto1.jpg'
-  },
-  {
-    title: 'Figurino das Dynamos(musical)',
-    category: 'figurinos',
-    image: './image/ma4.jpg' // <- './fotos/projeto1.jpg'
-  },
-  {
-    title: 'Projeto Especial',
-    category: 'projetos',
-    image: './image/ma5.jpg' // <- './fotos/projeto1.jpg'
-  },
-  {
-    title: 'Projeto Especial',
-    category: 'projetos',
-    image: './image/ma6.jpg' // <- './fotos/projeto1.jpg'
+    image: null  // <- './fotos/projeto1.jpg'
   },
 
   // Adicione mais cards aqui seguindo o mesmo formato:
@@ -205,6 +180,35 @@ function init() {
 // Menu mobile
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Enviar mensagem via WhatsApp
+function enviarWhatsApp() {
+  const nome    = document.getElementById('contactNome').value.trim();
+  const contato = document.getElementById('contactContato').value.trim();
+  const tipo    = document.getElementById('contactTipo').value;
+  const msg     = document.getElementById('contactMsg').value.trim();
+
+  if (!nome || !contato || !msg) {
+    alert('Por favor, preencha nome, contato e descrição do projeto.');
+    return;
+  }
+
+  const texto = `Olá Luiza! 👋\n\n`
+    + `Recebi uma mensagem pelo seu site:\n\n`
+    + `👤 *Nome:* ${nome}\n`
+    + `📱 *Contato:* ${contato}\n`
+    + `🎭 *Tipo de projeto:* ${tipo}\n\n`
+    + `💬 *Mensagem:*\n${msg}`;
+
+  const url = `https://wa.me/5547999589792?text=${encodeURIComponent(texto)}`;
+  window.open(url, '_blank');
+
+  // Fecha o modal e limpa os campos
+  document.getElementById('contactModal').classList.remove('open');
+  document.getElementById('contactNome').value    = '';
+  document.getElementById('contactContato').value = '';
+  document.getElementById('contactMsg').value     = '';
 }
 
 document.addEventListener('DOMContentLoaded', init);

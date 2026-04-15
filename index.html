@@ -40,7 +40,7 @@
   <div class="hero-content">
     <p class="hero-eyebrow">Figurinos & Moda</p>
     <h1 class="hero-name">Luiza<em>Michielin</em></h1>
-    <p class="hero-sub">Criações exclusivas</p>
+    <p class="hero-sub">Criações exclusivas para teatro, dança e moda</p>
     <div class="hero-line"></div>
     <p class="hero-scroll" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Ver portfólio</p>
   </div>
@@ -66,7 +66,7 @@
     <p class="section-label">Sobre mim</p>
     <h2 class="about-title">Figurinista<br>& <em>Estilista</em></h2>
     <p class="about-text">
-      Olá! Sou Luiza Michielin, figurinista e estilista apaixonada pela arte de criar roupas que contam histórias. Trabalho com organização ou produção de figurinos para teatro, peças autorais e um pouco de tudo, transformando conceitos em peças únicas e exclusivas.
+      Olá! Sou Luiza Michielin, figurinista e estilista apaixonada pela arte de criar roupas que contam histórias. Trabalho com figurinos para teatro, dança e moda, transformando conceitos em peças únicas e exclusivas.
     </p>
     <p class="about-text">
       Cada projeto é uma nova oportunidade de explorar formas, texturas e narrativas através do tecido. Da criação do croqui à peça finalizada, cuido de cada detalhe com dedicação e criatividade.
@@ -91,7 +91,8 @@
     <button class="tab-btn active" onclick="filterTab('todos', this)">Todos</button>
     <button class="tab-btn" onclick="filterTab('figurinos', this)">Figurinos</button>
     <button class="tab-btn" onclick="filterTab('projetos', this)">Projetos</button>
-
+    <button class="tab-btn" onclick="filterTab('pecas', this)">Peças Autorais</button>
+    <button class="tab-btn" onclick="filterTab('croche', this)">Crochê</button>
   </div>
 
   <div class="photo-grid" id="photoGrid">
@@ -109,7 +110,7 @@
     <div class="service-card reveal">
       <div class="service-num">01</div>
       <div class="service-name">Figurinos Teatrais</div>
-      <p class="service-desc">Criação, confecção e organizção de figurinos para peças de teatro e dança, do croqui à peça finalizada, com atenção à narrativa e movimento cênico. </p>
+      <p class="service-desc">Criação e confecção de figurinos para peças de teatro e dança, do croqui à peça finalizada, com atenção à narrativa e movimento cênico.</p>
     </div>
     <div class="service-card reveal">
       <div class="service-num">02</div>
@@ -151,15 +152,15 @@
     <h3 class="modal-title">Solicitar orçamento</h3>
     <div class="form-group">
       <label>Seu nome</label>
-      <input type="text" placeholder="Como posso te chamar?">
+      <input type="text" id="contactNome" placeholder="Como posso te chamar?">
     </div>
     <div class="form-group">
       <label>WhatsApp ou e-mail</label>
-      <input type="text" placeholder="Para entrar em contato">
+      <input type="text" id="contactContato" placeholder="Para entrar em contato">
     </div>
     <div class="form-group">
       <label>Tipo de projeto</label>
-      <select>
+      <select id="contactTipo">
         <option>Figurino teatral</option>
         <option>Fantasia / Cosplay</option>
         <option>Peça exclusiva de moda</option>
@@ -169,9 +170,9 @@
     </div>
     <div class="form-group">
       <label>Descreva seu projeto</label>
-      <textarea placeholder="Me conte mais sobre o que você imagina..."></textarea>
+      <textarea id="contactMsg" placeholder="Me conte mais sobre o que você imagina..."></textarea>
     </div>
-    <button class="form-submit" onclick="alert('Mensagem enviada! Em breve Luiza entrará em contato ✨')">Enviar solicitação</button>
+    <button class="form-submit" onclick="enviarWhatsApp()">Enviar solicitação</button>
   </div>
 </div>
 
