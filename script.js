@@ -2,83 +2,72 @@
 //  LUIZA MICHIELIN — PORTFOLIO SCRIPT
 // ============================================================
 
-// ============================================================
-//  FOTO DE FUNDO DO HERO (BANNER PRINCIPAL)
-//  Cole o caminho da sua foto aqui:
-//  Exemplo: './fotos/banner.jpg'
-//  Deixe null para usar o fundo escuro.
-// ============================================================
-const HERO_BG_IMAGE = null; // <- coloque o caminho aqui: './fotos/banner.jpg'
+const HERO_BG_IMAGE = './image/fotofundo.png';
+const ABOUT_IMAGE   = './image/imagem_pessoal.jpeg';
 
-// ============================================================
-//  FOTO DA SEÇÃO "SOBRE"
-//  Cole o caminho da sua foto aqui:
-//  Exemplo: './fotos/perfil.jpg'
-//  Deixe null para mostrar o espaço vazio.
-// ============================================================
-const ABOUT_IMAGE = null; // <- coloque o caminho aqui: './fotos/perfil.jpg'
-
-// ============================================================
-//  CARDS DO PORTFÓLIO
-//
-//  Para cada card, preencha:
-//    title:    nome do projeto
-//    category: 'figurinos' | 'projetos' | 'pecas' | 'croche'
-//    image:    caminho da foto, ex: './fotos/fantasia1.jpg'
-//              Deixe null para mostrar o espaço reservado.
-//
-//  Para ADICIONAR um novo card, copie um bloco { } e cole
-//  logo abaixo, separado por vírgula.
-// ============================================================
 const cards = [
 
-  // --- CARD 1 ---
   {
     title: 'Fantasia da Jasmine',
-    category: 'figurinos',
-    image: null  // <- './fotos/jasmine.jpg'
+    category: 'pecas',
+    image: './image/jasmine.jpeg'
   },
-
-  // --- CARD 2 ---
   {
-    title: 'Fantasia da Bia',
-    category: 'figurinos',
-    image: null  // <- './fotos/bia.jpg'
+    title: 'Fantasia de gênio',
+    category: 'pecas',
+    image: './image/genio.jpeg'
   },
-
-  // --- CARD 3 ---
   {
     title: 'Figurino Teatro',
     category: 'figurinos',
-    image: null  // <- './fotos/teatro.jpg'
+    image: './image/mostra1.jpeg'
   },
-
-  // --- CARD 4 ---
   {
-    title: 'Projeto Crochê',
-    category: 'croche',
-    image: null  // <- './fotos/croche.jpg'
+    title: 'Figurino Teatro',
+    category: 'figurinos',
+    image: './image/mostra2.jpeg'
   },
-
-  // --- CARD 5 ---
   {
-    title: 'Peça Autoral',
-    category: 'pecas',
-    image: null  // <- './fotos/peca1.jpg'
+    title: 'Figurino Teatro',
+    category: 'figurinos',
+    image: './image/mostra3.jpeg'
   },
-
-  // --- CARD 6 ---
+  {
+    title: 'Figurino das Dynamos (musical)',
+    category: 'figurinos',
+    image: './image/ma2.jpg'
+  },
   {
     title: 'Projeto Especial',
     category: 'projetos',
-    image: null  // <- './fotos/projeto1.jpg'
+    image: './image/ma1.jpg'
+  },
+  {
+    title: 'Figurino das Dynamos (musical)',
+    category: 'figurinos',
+    image: './image/ma3.jpg'
+  },
+  {
+    title: 'Figurino das Dynamos (musical)',
+    category: 'figurinos',
+    image: './image/ma4.jpg'
+  },
+  {
+    title: 'Projeto Especial',
+    category: 'projetos',
+    image: './image/ma5.jpg'
+  },
+  {
+    title: 'Projeto Especial',
+    category: 'projetos',
+    image: './image/ma6.jpg'
   },
 
-  // Adicione mais cards aqui seguindo o mesmo formato:
+  // Adicione mais cards aqui:
   // {
   //   title: 'Nome do Projeto',
   //   category: 'figurinos',
-  //   image: './fotos/nome-do-arquivo.jpg'
+  //   image: './image/nome-do-arquivo.jpg'
   // },
 
 ];
@@ -107,7 +96,7 @@ function renderGrid() {
 
   grid.innerHTML = '';
 
-  filtered.forEach((card, index) => {
+  filtered.forEach(card => {
     const div = document.createElement('div');
     div.className = 'photo-card';
 
@@ -148,26 +137,22 @@ function filterTab(tab, btn) {
 //  INICIALIZAÇÃO
 // ============================================================
 function init() {
-  // Hero background
   const heroBg = document.getElementById('heroBgPhoto');
   if (HERO_BG_IMAGE && heroBg) {
     heroBg.style.backgroundImage = `url('${HERO_BG_IMAGE}')`;
     heroBg.classList.add('has-photo');
   }
 
-  // About photo
-  const aboutImg = document.getElementById('aboutImg');
+  const aboutImg         = document.getElementById('aboutImg');
   const aboutPlaceholder = document.getElementById('aboutPlaceholder');
   if (ABOUT_IMAGE && aboutImg) {
-    aboutImg.src = ABOUT_IMAGE;
+    aboutImg.src           = ABOUT_IMAGE;
     aboutImg.style.display = 'block';
     if (aboutPlaceholder) aboutPlaceholder.style.display = 'none';
   }
 
-  // Grid
   renderGrid();
 
-  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) e.target.classList.add('visible');
@@ -177,12 +162,16 @@ function init() {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
-// Menu mobile
+// ============================================================
+//  MENU MOBILE
+// ============================================================
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
 }
 
-// Enviar mensagem via WhatsApp
+// ============================================================
+//  ENVIAR MENSAGEM VIA WHATSAPP
+// ============================================================
 function enviarWhatsApp() {
   const nome    = document.getElementById('contactNome').value.trim();
   const contato = document.getElementById('contactContato').value.trim();
@@ -195,7 +184,7 @@ function enviarWhatsApp() {
   }
 
   const texto = `Olá Luiza! 👋\n\n`
-    + `Recebi uma mensagem pelo seu site:\n\n`
+    + `Nova mensagem pelo seu site:\n\n`
     + `👤 *Nome:* ${nome}\n`
     + `📱 *Contato:* ${contato}\n`
     + `🎭 *Tipo de projeto:* ${tipo}\n\n`
@@ -204,7 +193,6 @@ function enviarWhatsApp() {
   const url = `https://wa.me/5547999589792?text=${encodeURIComponent(texto)}`;
   window.open(url, '_blank');
 
-  // Fecha o modal e limpa os campos
   document.getElementById('contactModal').classList.remove('open');
   document.getElementById('contactNome').value    = '';
   document.getElementById('contactContato').value = '';
